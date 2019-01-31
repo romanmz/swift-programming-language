@@ -115,6 +115,7 @@ let myRoomName = room1?.roomName()
 // Just like properties, methods will also return an optional type which you'll need to unwrap before using
 if myRoomName != nil {
     let result = "result "+myRoomName!
+    result
 }
 
 

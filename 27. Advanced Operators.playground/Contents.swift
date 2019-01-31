@@ -296,4 +296,3 @@ testVector.description()
 // right: X: 2+(2+2)=+6   Y: 3*(3-3)=+0
 // none:  ERROR
 ( testVector +* testVector +- testVector ).description()
-

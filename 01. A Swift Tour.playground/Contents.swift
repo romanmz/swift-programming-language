@@ -76,6 +76,7 @@ teamScore
 
 // for-in with a dict
 for (countryCode, countryName) in countries {
+    countryCode
     countryName
 }
 
@@ -672,7 +673,7 @@ possibleInteger = .some(100)
 
 // Use the "where" clause to make sure that the passed variables meet certain criteria
 func hasCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
-    where T.Iterator.Element: Equatable, U.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element
+    where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element
 {
     for lhsItem in lhs {
         for rhsItem in rhs {

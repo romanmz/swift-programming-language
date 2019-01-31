@@ -164,6 +164,7 @@ soldSnack = try? buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachin
 
 // You can use optional unwrapping to immediately test for error or success
 if let couldSell = try? buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine) {
+    couldSell
     "success: \"couldSell\" variable is ready to use"
 } else {
     "error"
@@ -206,7 +207,7 @@ func processFile(filename: String) {
         defer {
             close(filename: file)
         }
-        for char in file.characters {
+        for char in file {
             print(char)
             // Work with the file.
         }

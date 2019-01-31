@@ -37,11 +37,6 @@ for character in someString {
 	character
 	type(of: character)
 }
-// You can also access the full collection of characters directly with the 'characters' property
-for character in someString.characters {
-    character
-	type(of: character)
-}
 
 // You can also use string literals to create Character objects
 let exclamationMark: Character = "!"
@@ -86,7 +81,7 @@ let regionalIndicatorForUS: Character = "\u{1F1FA}\u{1F1F8}"
 
 // String properties and methods:
 let stringIndexes = "Lorem ipsum \u{1F1FA}\u{1F1F8}"
-stringIndexes.characters.count
+stringIndexes.count
 stringIndexes.startIndex
 stringIndexes.endIndex
 
@@ -99,7 +94,7 @@ greeting[index]
 
 welcome = "hello"
 welcome.insert("!", at: welcome.endIndex)
-welcome.insert(contentsOf: " there".characters, at: welcome.index(before: welcome.endIndex))
+welcome.insert(contentsOf: " there", at: welcome.index(before: welcome.endIndex))
 
 welcome.remove(at: welcome.index(before: welcome.endIndex))
 let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
@@ -144,5 +139,3 @@ type(of: substring)
 // Most String APIs can be called on Substring
 print(substring.uppercased())
 print("---")
-
-

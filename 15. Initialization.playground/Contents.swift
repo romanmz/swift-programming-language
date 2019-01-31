@@ -322,7 +322,7 @@ let unknownUnit = TemperatureUnit(symbol: "X")
 
 // Optional enumerations don't need to be unwrapped
 if( fahrenheitUnit != nil ) {
-    let usedUnit = fahrenheitUnit
+    fahrenheitUnit
 }
 
 

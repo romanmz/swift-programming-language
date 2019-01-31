@@ -71,6 +71,7 @@ for value in mergedArray {
 // Use the enumerated() function to get a tuple that includes the indexes of each item
 for (index, value) in mergedArray.enumerated() {
     print( index )
+    value
 }
 
 
@@ -212,6 +213,7 @@ dictImplicit[3] = nil // Deletes a value
 
 // Iterating over a dictionary
 for (number, numberString) in dictImplicit {
+    number
     print( numberString )
 }
 

@@ -106,4 +106,3 @@ playerInformation
 // - you're accessing only stored properties of a structure (no computed/class properties)
 // - the struct is the value of a local variable (not global)
 // - the struct is not captured by any escaping closures
-

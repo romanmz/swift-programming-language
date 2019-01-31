@@ -399,4 +399,3 @@ struct GenericSubscripts: Container {
 
 // -+-+-+-+-
 // (C1 and C2 are 'type parameters')
-
