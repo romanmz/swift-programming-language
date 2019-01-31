@@ -54,6 +54,7 @@ func literalExpressions() {
     print( #line )
     print( #column )
     print( #function )
+    // print( #dsohandle )
 }
 literalExpressions()
 
@@ -93,6 +94,13 @@ let value2 = 10
 // Use a line control statement to change the source code location used by Swift for diagnostic and debugging purposes
 // #sourceLocation(file: "string literal", line: +12) // changes the source location of the file
 // #sourceLocation()    // resets the source location
+
+
+// COMPILE-TIME DIAGNOSTIC STATEMENTS
+// throwing errors (stops the compilation)
+// #error("this is a fatal error")
+// throwing warnings (continues the compilation)
+// #warning("this is a warning")
 
 
 // AVAILABILITY CONDITION
@@ -204,8 +212,17 @@ switch point {
 // 'discardableResult'
 // Apply this to functions or methods to suppress compiler warnings when the value they return is not used anywhere
 
+// 'dynamicMemberLookup' (???)
+// Apply this attribute to a class, structure, enumeration, or protocol to enable members to be looked up by name at runtime. The type must implement a subscript(dynamicMemberLookup:) subscript.
+
 // 'GKInspectable' (???)
 // Apply this attribute to expose a custom GameplayKit component property to the SpriteKit editor UI
+
+// 'inlinable' (???)
+// Apply this attribute to a function, method, computed property, subscript, convenience initializer, or deinitializer declaration to expose that declaration’s implementation as part of the module’s public interface
+
+// 'usableFromInline' (???)
+// Apply this attribute to a function, method, computed property, subscript, initializer, or deinitializer declaration to allow that symbol to be used in inlinable code that’s defined in the same module as the declaration. The declaration must have the internal access level modifier
 
 // 'objc'
 // Apply this attribute to any declaration that can be used in Objective-C
@@ -252,6 +269,9 @@ class ExampleClass2: NSObject {
 // Applies to instance methods, or stored variable property of classes that inherit from 'NSManagedObject'
 // This attribute indicates that Core Data dynamically provides its implementation at runtime
 
+// 'requires_stored_property_inits' (???)
+// Apply this attribute to a class declaration to require all stored properties within the class to provide default values as part of their definitions. This attribute is inferred for any class that inherits from NSManagedObject
+
 // 'testable'
 // This attribute can be applied to 'import' declarations to load modules compiled with testing enabled
 // it makes all 'internal' entities available as if they had been marked as 'public'
@@ -260,6 +280,9 @@ class ExampleClass2: NSObject {
 // 'UIApplicationMain' (???)
 // Apply this attribute to a class to indicate that it is the application delegate
 // Using this attribute is equivalent to calling the UIApplicationMain function
+
+// 'warn_unqualified_access' (???)
+// Apply this attribute to a top-level function, instance method, or class or static method to trigger warnings when that function or method is used without a preceding qualifier, such as a module name, type name, or instance variable or constant
 
 
 // DECLARATION ATTRIBUTES USED BY INTERFACE BUILDER (???)

@@ -32,6 +32,16 @@ switch directionToHead {
         print("Where the skies are blue")
 }
 
+// Iterating over all cases
+// If you make the enumeration conform to the CaseIterable protocol, Swift will expose a static and iterable 'allCases' property
+enum Beverage: CaseIterable {
+    case coffee, tea, juice
+}
+Beverage.allCases.count
+for beverage in Beverage.allCases {
+    beverage
+}
+
 
 // ASSOCIATED VALUES
 
