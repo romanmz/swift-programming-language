@@ -162,6 +162,12 @@ let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)
 twoThree == anotherTwoThree
 twoThree == combinedVector
 
+// you can get swift to implement this automatically by making the type conform to the 'Equatable' protocol
+// this works only on these cases:
+// - Structures that have only stored properties that conform to the Equatable protocol
+// - Enumerations that have only associated types that conform to the Equatable protocol
+// - Enumerations that have no associated types
+
 
 // CUSTOM OPERATORS
 // ------------------------------

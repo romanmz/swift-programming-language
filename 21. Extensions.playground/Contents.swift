@@ -102,3 +102,15 @@ someFloat
 someFloat.kind
 someFloat.kind.rawValue
 Double.Kind.negative.rawValue
+
+
+// CONDITIONAL CONFORMANCE
+// ------------------------------
+
+// When extending generic types, you can apply protocols conditionally depending on whether or not the type of values it uses meets a certain criteria
+/*
+ extension GenericType: Protocol1 where T: Requirement1 {
+ }
+ extension GenericType: Protocol2 where T: Requirement2 {
+ }
+ */

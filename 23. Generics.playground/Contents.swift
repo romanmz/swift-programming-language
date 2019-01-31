@@ -368,6 +368,14 @@ protocol Container2 {
 // If you need to add restrictions to the associated types of a protocol you're inheriting from, you can add a 'where' clause on the protocol definition itself
 protocol Container3: Container2 where Item: Comparable {}
 
+// When using associated types on a protocol, you can add a condition so that the associated type conforms to the same protocol you're currently defining
+// this is helpful to make sure the elements introduced by the protocol have the same type as the type that is adopting the protocol
+// (or another type that has also adopted the same protocol)
+protocol SuffixableContainer: Container {
+    associatedtype Suffix: SuffixableContainer where Suffix.Item == Item
+    func suffix(_ size: Int) -> Suffix
+}
+
 
 // GENERIC SUBSCRIPTS
 // ------------------------------

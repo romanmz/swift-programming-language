@@ -80,6 +80,12 @@ let value2 = 10
 #elseif arch( i386 )
     // Or check the processor
     // valid values are: i386, x86_64, arm, arm64
+#elseif compiler( >=3.1.2 )
+    // Check the version of the compiler being used
+#elseif canImport( modulename )
+    // Checks whether or not a particular module is currently available
+#elseif targetEnvironment( simulator )
+    // Returns true if the code is running on the simulator, false otherwise
 #endif
 
 
