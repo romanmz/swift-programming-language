@@ -34,6 +34,16 @@ let authorKeyPath = \Book.primaryAuthor
 let nameKeyPath = authorKeyPath.appending(path: \.name)
 book[keyPath: nameKeyPath]
 
+// This is the equivalent of just directly accessing the nested properties separeted by dots, but keypaths can be useful when you need to make the used properties dynamic
+book.primaryAuthor.name
+
+// You can also use subscripts within keypaths, e.g:
+let hello = ["hello", "hola", "bonjour"]
+let secondItem = \[String][1]
+hello[keyPath: secondItem]
+
+// keypaths can also use optional chaining and forced unwrapping
+
 
 // 'CODABLE' PROTOCOL
 // ------------------------------
