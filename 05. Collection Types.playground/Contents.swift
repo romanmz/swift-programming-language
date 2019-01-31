@@ -197,6 +197,22 @@ let dictExplicit1: Dictionary<Int, String> = [1:"one", 2:"two", 3:"three"]
 let dictExplicit2: [Int: String] = [1:"one", 2:"two", 3:"three"]
 var dictImplicit = [1:"one", 2:"TWO", 3:"three"]
 
+// Initializing a dictionary from a sequence
+let simpleSequence = ["Cagney", "Lacey", "Bensen"]
+let dictFromSequence = Dictionary(uniqueKeysWithValues: zip(1..., simpleSequence))
+
+// Initializing a dictionary from a sequence, defining how to handle duplicate keys
+// the 'uniquingKeysWith' parameter is a function that receives two different values belonging to the same key, you return the one you want to pick
+let duplicatesSequence = [("a", 1), ("b", 2), ("a", 3), ("b", 4)]
+let dictFromSequenceWithDuplicates = Dictionary(duplicatesSequence, uniquingKeysWith: { (first, _) in first })
+dictFromSequenceWithDuplicates
+
+// Initializing a dictionary containing sequences grouped by a dynamically generated key
+// the 'by' parameter is a function that receives each individual value, and you return the key name of the collection where the value should be included
+let anotherSequence = ["Julia", "Susan", "John", "Alice", "Alex"]
+let dictWithGroupedSequences = Dictionary(grouping: anotherSequence, by: { $0.first! })
+dictWithGroupedSequences
+
 // Properties and methods
 dictImplicit.count
 dictImplicit.isEmpty
@@ -210,6 +226,15 @@ dictImplicit[2] // Reading items returns an optional type, this line returns an 
 dictImplicit[3] // this returns an optional string with nil
 dictImplicit[3] = "three" // Sets a value
 dictImplicit[3] = nil // Deletes a value
+
+// Using subscript syntax with default values (this makes the returned type a non-optional)
+let dict = [1:"one", 2:"two", 3:"three"]
+let dictSubscript1 = dict[1]
+type(of: dictSubscript1)
+let dictSubscript2 = dict[5]
+type(of: dictSubscript2)
+let dictSubscript3 = dict[5, default: "more than three"]
+type(of: dictSubscript3)
 
 // Iterating over a dictionary
 for (number, numberString) in dictImplicit {

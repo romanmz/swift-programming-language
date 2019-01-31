@@ -61,6 +61,49 @@ literalExpressions()
 // plus others…
 
 
+// SMART KEY PATHS
+// ------------------------------
+
+// All types automatically generate 'key paths', which is a way to walk through their nested properties and types by referencing the same structure in which they were defined
+
+// To get a keypath simply add a backslash followed by the path to the property you want to access, e.g:
+struct Person {
+    var name: String
+}
+struct Book {
+    var title: String
+    var authors: [Person]
+    var primaryAuthor: Person {
+        return authors.first!
+    }
+}
+let abelson = Person(name: "Harold Abelson")
+let sussman = Person(name: "Gerald Jay Sussman")
+let book = Book(title: "Structure and Interpretation of Computer Programs", authors: [abelson, sussman])
+
+// Key Path:
+\Book.title
+
+// All types also get an automatic subscript that can be used with key paths
+book[keyPath: \Book.title]
+book[keyPath: \Book.primaryAuthor.name]
+
+// Keypaths can be assigned and modified as constants and variables, which then can be passed as the argument for the subscript
+let authorKeyPath = \Book.primaryAuthor
+let nameKeyPath = authorKeyPath.appending(path: \.name)
+book[keyPath: nameKeyPath]
+
+// This is the equivalent of just directly accessing the nested properties separeted by dots, but keypaths can be useful when you need to make the used properties dynamic
+book.primaryAuthor.name
+
+// You can also use subscripts within keypaths, e.g:
+let hello = ["hello", "hola", "bonjour"]
+let secondItem = \[String][1]
+hello[keyPath: secondItem]
+
+// keypaths can also use optional chaining and forced unwrapping
+
+
 // COMPILER CONTROL STATEMENTS
 // ------------------------------
 

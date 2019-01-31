@@ -717,3 +717,37 @@ print(hamsters.textualDescription)
 // and there are types that meet two or more of those criterias, the protocol extensio with the most specialized constraints will be used for those types
 
 // The 'Iterator.Element' property used in this example is a 'Generic', which are explained in the next section
+
+
+// THE 'CODABLE' PROTOCOL
+// ------------------------------
+
+// By making your types conform to the new 'Codable' protocol, you can easily encode your types into different types of data, and decode them back into their types
+// All basic types (Int, String, Bool, Double, etc…) already conform to that protocol, so if your type includes only those, you can declare conformance straight away, otherwise for the other types you need to make them conforming as well first
+
+struct Card: Codable, Equatable {
+    enum Suit: String, Codable {
+        case clubs, spades, hearts, diamonds
+    }
+    enum Rank: Int, Codable {
+        case two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace
+    }
+    var suit: Suit
+    var rank: Rank
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit && lhs.rank == rhs.rank
+    }
+}
+let hand = [Card(suit: .clubs, rank: .ace), Card(suit: .hearts, rank: .queen)]
+
+// Encoding Example: JSON
+var encoder = JSONEncoder()
+let jsonData = try encoder.encode(hand)
+jsonData
+String(data: jsonData, encoding: .utf8)
+
+// Decoding Example: JSON
+let decoder = JSONDecoder()
+let decodedHand = try decoder.decode([Card].self, from: jsonData)
+decodedHand
+decodedHand == hand
